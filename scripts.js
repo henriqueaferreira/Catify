@@ -27,6 +27,17 @@ document.addEventListener('DOMContentLoaded', () => {
        }
     ];
 
+    const artistDescriptions = {
+    
+            "Creed": "Creed é uma banda de post-grunge estadunidense formada em 1994 na cidade de Tallahassee, originalmente idealizada pelos amigos Scott Stapp e Mark Tremonti, tendo Scott Phillips e Brian Marshall.",
+            "Bon Jovi": "Bon Jovi é uma banda americana de rock, formada em 1983, em Sayreville, Nova Jersey. A formação atual da banda consiste no cantor Jon Bon Jovi, no tecladista David Bryan, no baterista Tico Torres, no guitarrista Phil X e no baixista Hugh McDonald.",
+            "Guns N Roses": "Guns N' Roses é uma banda americana de hard rock formada em Los Angeles, Califórnia, em 1985, resultado da fusão entre as bandas locais L.A. Guns e Hollywood Rose.", 
+    
+        };
+    
+
+
+
     // --- CRIAÇÃO DE CARDS (mantendo seu layout) ---
     const artistGrid = document.querySelector('.artists-grid')
     const albumsGrid = document.querySelector('.albums-grid')
@@ -160,6 +171,33 @@ document.addEventListener('DOMContentLoaded', () => {
         loadTrack(nextIndex);
     });
 
+// ELEMENTOS DA TELA DE ARTISTA
+const artistScreen = document.getElementById("artistScreen");
+const artistInfoImg = document.getElementById("artistInfoImg");
+const artistInfoName = document.getElementById("artistInfoName");
+const artistInfoText = document.getElementById("artistInfoText");
+const closeArtist = document.getElementById("closeArtist");
+
+// --- QUANDO CLICAR EM QUALQUER ARTISTA DO GRID ---
+document.querySelectorAll(".artist-card").forEach((card, index) => {
+    card.addEventListener("click", () => {
+        const artist = artistsData[index];
+
+        artistInfoImg.src = artist.image;
+        artistInfoName.textContent = artist.name;
+
+        // PEGA O TEXTO PERSONALIZADO
+        artistInfoText.textContent = artistDescriptions[artist.name] || "Texto não encontrado";
+
+        artistScreen.classList.remove("hidden");
+    });
+});
+
+// --- FECHAR TELA ---
+closeArtist.addEventListener("click", () => {
+    artistScreen.classList.add("hidden");
+});
+
 }); // DOMContentLoaded fim
 
 // Pega o botão existente dentro da div .nav-playlist
@@ -194,3 +232,27 @@ createPlaylistBtn.addEventListener("click", () => {
     playlistScreen.classList.add("hidden");
 });
 
+
+// BOTÃO "Português do Brasil"
+const langButton = document.querySelector(".nav-botao");  
+
+// TELA DE DESENVOLVEDORES
+const devScreen = document.getElementById("devScreen");
+const closeDev = document.getElementById("closeDev");
+
+// Abrir tela de desenvolvedores
+langButton.addEventListener("click", () => {
+    devScreen.classList.remove("hidden");
+});
+
+// Fechar tela
+closeDev.addEventListener("click", () => {
+    devScreen.classList.add("hidden");
+});
+
+// Controle de volume
+const volumeBar = document.getElementById("volume-bar");
+
+volumeBar.addEventListener("input", () => {
+    audio.volume = volumeBar.value;
+});

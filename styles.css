@@ -194,7 +194,7 @@ main {
 }
 
 .controls i:hover {
-    color: #1db954;
+    color: #5d0386;
 }
 
 /* Barra de progresso */
@@ -204,7 +204,7 @@ main {
 
 #progress-bar {
     width: 100%;
-    accent-color: #f00;
+    accent-color: #5d0386;
 }
 
 .conta button {
@@ -214,7 +214,8 @@ main {
     font-size: 12px;
     border-radius: 20px;
     cursor:pointer;
-    
+    width: 100px;
+    border: #5d0386;
 }
 
 
@@ -224,9 +225,8 @@ main {
     right: 100px;
     padding: 14px 16px;
     align-items: center;
-    
-
 }
+
 
 /* Tela de playlist sobre o site */
 .playlist-screen {
@@ -286,4 +286,78 @@ main {
 .close-btn {
     background: #333;
     color: white;
+}
+
+#devScreen .playlist-box{
+    width: 600px;
+}
+/* Botão dentro da tela de desenvolvedores */
+#devScreen .playlist-box button {
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 16px;
+}
+
+/* Botão voltar da tela de desenvolvedores */
+#devScreen .close-btn {
+    background-color: #333;
+    color: white;
+}
+
+
+/* TELA DO ARTISTA */
+.artist-box {
+    background: #181818;
+    padding: 30px;
+    width: 380px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    text-align: center;
+    color: white;
+}
+
+.artist-box img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.artist-box button {
+    padding: 10px 16px;
+    background-color: #5d0386;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.artist-box button:hover {
+    background-color: #5d0386;
+}
+
+.artist-box .close-btn {
+    background-color: #333 !important;
+    color: white;
+}
+
+.artist-box .close-btn:hover {
+    background-color: #444 !important;
+}
+
+.volume-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 120px;
+}
+
+.volume-area input {
+    width: 100%;
+    accent-color: #5d0386;
 }
