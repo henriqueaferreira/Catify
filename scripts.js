@@ -24,6 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
            artist: 'Bon Jovi',
            image: 'livinon.jpeg',
            file: 'livinon.mp3'
+       },
+        {
+           name: 'Bring Me To Life',
+           artist: 'Evanescence',
+           image: 'bring.jpeg',   
+           file: 'bringme.mp3'      
+       },
+        {
+           name: 'Rock That Body',
+           artist: 'Black Eyed Peas',
+           image: 'rockthatbody.jpg',   
+           file: 'rock.mp3'      
        }
     ];
 
@@ -38,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // --- CRIAÇÃO DE CARDS (mantendo seu layout) ---
     const artistGrid = document.querySelector('.artists-grid')
     const albumsGrid = document.querySelector('.albums-grid')
 
@@ -60,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     albumsData.forEach( (album, idx) => { 
         const albumCard = document.createElement('div')
         albumCard.classList.add('album-card')
-        // adiciona atributo data-index para controlar qual música tocar
+
         albumCard.setAttribute('data-index', idx)
 
         albumCard.innerHTML = `
@@ -74,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         albumsGrid.appendChild(albumCard)
     })
 
-    // --- BARRA DE ÁUDIO: elementos ---
     const audio = document.getElementById("audio");
     const playBtn = document.getElementById("play");
     const progressBar = document.getElementById("progress-bar");
@@ -86,9 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById("prev");
     const nextBtn = document.getElementById("next");
 
-    let currentIndex = null; // index da música atual (albumsData)
+    let currentIndex = null; 
 
-    // --- FUNÇÃO PARA CARREGAR E TOCAR MÚSICA ---
     function loadTrack(index) {
         if (index == null || index < 0 || index >= albumsData.length) return;
         const data = albumsData[index];
@@ -99,12 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
         titleEl.textContent = data.name;
         artistEl.textContent = data.artist;
 
-        // reset progresso
+
         progressBar.value = 0;
 
-        // tenta tocar (pode ser bloqueado por política do navegador até interação do usuário)
+
         audio.play().catch(() => {
-            // se o autoplay for bloqueado, apenas deixe o botão mostrar "play"
+        
             playBtn.classList.remove("fa-pause");
             playBtn.classList.add("fa-play");
         });
@@ -113,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playBtn.classList.add("fa-pause");
     }
 
-    // --- CLIQUE NOS ÁLBUNS (delegação segura: albumsGrid já tem os cards) ---
+
     albumsGrid.addEventListener('click', (e) => {
         const card = e.target.closest('.album-card');
         if (!card) return;
@@ -123,10 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- PLAY / PAUSE ---
+   
     playBtn.addEventListener("click", () => {
         if (!audio.src) {
-            // se ainda não escolheu uma faixa, toca a primeira por padrão
+       
             loadTrack(0);
             return;
         }
@@ -141,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- NEXT / PREV ---
     nextBtn.addEventListener('click', () => {
         if (currentIndex == null) { loadTrack(0); return; }
         const nextIndex = (currentIndex + 1) % albumsData.length;
@@ -154,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadTrack(prevIndex);
     });
 
-    // --- ATUALIZAR BARRA DE PROGRESSO ---
+
     audio.addEventListener("timeupdate", () => {
         if (!audio.duration || isNaN(audio.duration)) return;
         progressBar.value = (audio.currentTime / audio.duration) * 100;
@@ -165,20 +173,18 @@ document.addEventListener('DOMContentLoaded', () => {
         audio.currentTime = (progressBar.value / 100) * audio.duration;
     });
 
-    // quando a música acaba, avança automaticamente
     audio.addEventListener('ended', () => {
         const nextIndex = (currentIndex == null) ? 0 : (currentIndex + 1) % albumsData.length;
         loadTrack(nextIndex);
     });
 
-// ELEMENTOS DA TELA DE ARTISTA
 const artistScreen = document.getElementById("artistScreen");
 const artistInfoImg = document.getElementById("artistInfoImg");
 const artistInfoName = document.getElementById("artistInfoName");
 const artistInfoText = document.getElementById("artistInfoText");
 const closeArtist = document.getElementById("closeArtist");
 
-// --- QUANDO CLICAR EM QUALQUER ARTISTA DO GRID ---
+
 document.querySelectorAll(".artist-card").forEach((card, index) => {
     card.addEventListener("click", () => {
         const artist = artistsData[index];
@@ -186,39 +192,36 @@ document.querySelectorAll(".artist-card").forEach((card, index) => {
         artistInfoImg.src = artist.image;
         artistInfoName.textContent = artist.name;
 
-        // PEGA O TEXTO PERSONALIZADO
+   
         artistInfoText.textContent = artistDescriptions[artist.name] || "Texto não encontrado";
 
         artistScreen.classList.remove("hidden");
     });
 });
 
-// --- FECHAR TELA ---
+
 closeArtist.addEventListener("click", () => {
     artistScreen.classList.add("hidden");
 });
 
 }); // DOMContentLoaded fim
 
-// Pega o botão existente dentro da div .nav-playlist
 const playlistBtn = document.querySelector(".nav-playlist button");
 
-// Elementos da tela de playlist
+
 const playlistScreen = document.getElementById("playlistScreen");
 const closePlaylist = document.getElementById("closePlaylist");
 const createPlaylistBtn = document.getElementById("createPlaylistBtn");
 
-// Quando clicar no botão existente, abre a tela
+
 playlistBtn.addEventListener("click", () => {
     playlistScreen.classList.remove("hidden");
 });
 
-// Botão "Voltar" fecha a tela
 closePlaylist.addEventListener("click", () => {
     playlistScreen.classList.add("hidden");
 });
 
-// Criar playlist (aqui só mostra um alerta)
 createPlaylistBtn.addEventListener("click", () => {
     const nome = document.getElementById("playlistName").value.trim();
 
@@ -233,24 +236,19 @@ createPlaylistBtn.addEventListener("click", () => {
 });
 
 
-// BOTÃO "Português do Brasil"
 const langButton = document.querySelector(".nav-botao");  
 
-// TELA DE DESENVOLVEDORES
 const devScreen = document.getElementById("devScreen");
 const closeDev = document.getElementById("closeDev");
 
-// Abrir tela de desenvolvedores
 langButton.addEventListener("click", () => {
     devScreen.classList.remove("hidden");
 });
 
-// Fechar tela
 closeDev.addEventListener("click", () => {
     devScreen.classList.add("hidden");
 });
 
-// Controle de volume
 const volumeBar = document.getElementById("volume-bar");
 
 volumeBar.addEventListener("input", () => {
