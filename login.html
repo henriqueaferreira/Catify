@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="wrapper" id="formWrapper">
+
+        <!-- Login -->
+        <div class="form-container login active">
+            <h2>Login</h2>
+            <form>
+                <p><input type="text" placeholder="Email" /></p>
+                <p><input type="password" placeholder="Senha" /></p>
+                <div class="forgot-password" tabindex="0">Esqueceu a senha?</div>
+                <p><button type="submit" class="submit-btn" id="btnLogin">Fazer Login</button></p>
+            </form>
+        </div>
+
+        <!-- Criar Conta -->
+        <div class="form-container signin">
+            <h2>Criar Conta</h2>
+            <form>
+                <p><input type="text" placeholder="Nome de usuário" /></p>
+                <p><input type="text" placeholder="Email" /></p>
+                <p><input type="password" placeholder="Senha" /></p>
+                <p><input type="password" placeholder="Confirme sua senha" /></p>
+
+                <label class="accept-terms">
+                    <input type="checkbox" /> Eu aceito os termos e condições
+                </label>
+
+                <p><button type="submit" class="submit-btn" id="btnCriarConta">Criar conta</button></p>
+            </form>
+        </div>
+
+        <!-- Troca entre login / criar conta -->
+        <div class="toggle-container">
+            <h2 id="toggleHeading">Não possui uma conta?</h2>
+            <p id="toggleText">Crie uma conta</p>
+            <button class="switch-btn" id="toggleBtn">Criar conta</button>
+        </div>
+    </div>
+
+    <!-- Botão de tema -->
+    <div class="theme-switcher">
+        <button id="themeToggle" aria-label="Alternar tema">🌙</button>
+    </div>
+
+    <script src="index.html"></script>
+</body>
+
+</html>

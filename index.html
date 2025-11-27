@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/857eca7068.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Catify</title>
+</head>
+<body>
+    <div class="container">
+        
+    <nav class="sidebar">
+         <div class="nav-playlist">
+            <h5>Suas playlist</h5>
+            <p> SUA FAVORITA</p>
+                <button>Criar Playlist</button>
+         </div>
+
+    
+<button class="nav-botao">
+   <i class="fa-solid fa-globe"></i>
+Português do Brasil
+   </button>
+  </nav> 
+    <main>
+
+<header class="barra">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <input placeholder="O que você quer ouvir?">
+</header>
+
+<header class="conta">
+<i class="fa-regular fa-user"></i>
+<a href="Login.html">
+    <button>Fazer Login</button>
+</a>
+
+</header>
+<section class="content">
+    <h2>Artistas</h2>
+    <div class="artists-grid">
+
+    </div>
+
+    <h2>Descubra</h2>
+    <div class="albums-grid">
+
+    </div>
+
+</section>
+
+    </main>
+<div class="banner">
+    <div>
+        <h2>teste</h2>
+    </div>
+
+</div>
+
+<div id="playlistScreen" class="playlist-screen hidden">
+    <div class="playlist-box">
+        <h2>Criar nova playlist</h2>
+
+        <input type="text" id="playlistName" placeholder="Nome da playlist">
+
+        <div class="playlist-buttons">
+            <button id="createPlaylistBtn">Criar</button>
+            <button id="closePlaylist" class="close-btn">Voltar</button>
+        </div>
+    </div>
+</div>
+
+</body>
+  <script src="./scripts.js"></script>
+</html>
+
+<div class="banner">
+    <!-- Música atual -->
+    <div class="music-info">
+        <img id="music-cover" src=" " alt=" ">
+        <div>
+            <h4 id="music-title">Selecione algo para tocar</h4>
+            <p id="music-artist"></p>
+        </div>
+    </div>
+
+    <!-- Controles -->
+    <div class="controls">
+        <i id="prev" class="fa-solid fa-backward-step"></i>
+        <i id="play" class="fa-solid fa-play"></i>
+        <i id="next" class="fa-solid fa-forward-step"></i>
+    </div>
+
+    <!-- Barra de progresso -->
+    <div class="progress-area">
+        <input type="range" id="progress-bar" value="0">
+    </div>
+
+    <audio id="audio"></audio>
+</div>
