@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const artistsData = [
-       { name: 'Creed', image: 'creed.jpg'},
+       { name: 'Creed', image: 'creed.jpeg'},
        { name: 'Guns N Roses', image: 'gunsandroses.jpeg'},
-       { name: 'Bon Jovi', image: 'bonjovi.jpeg'}
+       { name: 'Bon Jovi', image: 'bonjovi.jpeg'},
+       { name: 'AC/DC', image: 'acdc.jpeg'}
     ];
 
     const albumsData = [
@@ -36,6 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
            artist: 'Black Eyed Peas',
            image: 'rockthatbody.jpg',   
            file: 'rock.mp3'      
+       },
+       {
+           name: 'Coma',
+           artist: 'Guns N Roses',
+           image: 'coma.jpeg',   
+           file: 'coma.mp3'      
        }
     ];
 
@@ -44,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "Creed": "Creed é uma banda de post-grunge estadunidense formada em 1994 na cidade de Tallahassee, originalmente idealizada pelos amigos Scott Stapp e Mark Tremonti, tendo Scott Phillips e Brian Marshall.",
             "Bon Jovi": "Bon Jovi é uma banda americana de rock, formada em 1983, em Sayreville, Nova Jersey. A formação atual da banda consiste no cantor Jon Bon Jovi, no tecladista David Bryan, no baterista Tico Torres, no guitarrista Phil X e no baixista Hugh McDonald.",
             "Guns N Roses": "Guns N' Roses é uma banda americana de hard rock formada em Los Angeles, Califórnia, em 1985, resultado da fusão entre as bandas locais L.A. Guns e Hollywood Rose.", 
-    
+            "AC/DC": "AC/DC é uma banda australiana de rock formada em Sydney, Austrália em 1973, pelos irmãos escoceses Malcolm e Angus Young. O estilo musical da banda é normalmente classificado como hard rock e até mesmo blues rock. Mas seus membros sempre classificaram a sua música simplesmente como rock and roll.",
         };
     
 
